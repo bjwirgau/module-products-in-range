@@ -26,6 +26,7 @@ bin/magento setup:upgrade
 ## Usage
 
 Upon login, navigate to the "Products In Range" tab. Here you will be able to search for products by price.
+<img width="1309" height="803" alt="Screenshot1" src="https://github.com/user-attachments/assets/650c5c7f-55fb-4730-8920-815d53e4ff8b" />
 
 ## License
 
