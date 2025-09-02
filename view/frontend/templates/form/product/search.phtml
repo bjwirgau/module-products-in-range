@@ -1,0 +1,22 @@
+<?php
+/**
+ * @var $block \CrimsonAgility\ProductsInRange\Block\Customer\Search
+ */
+?>
+<div id="product-search-container" data-bind="scope: 'product-search-component'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#product-search-container": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "product-search-component": {
+                            "component": "CrimsonAgility_ProductsInRange/js/product/search"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</div>
+

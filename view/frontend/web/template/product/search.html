@@ -1,0 +1,83 @@
+<form action="#" method="post" data-bind="mageInit: {'validation': {}}" id="product-search-form" class="search-form">
+
+    <div class="search-fields-container">
+        <div class="input-field required">
+            <label for="min-price">Minimum Price</label>
+            <input id="min-price"
+                   name="min-price"
+                   type="number"
+                   data-validate="{
+                   'required': true,
+                   'validate-currency-dollar': true,
+                   'validate-greater-than-zero': true}"/><span>$</span>
+        </div>
+        <div class="input-field required">
+            <label for="max-price">Maximum Price</label>
+            <input id="max-price"
+                   name="max-price"
+                   type="number"
+                   data-validate="{
+                    'required': true,
+                    'validate-max-price-range': true,
+                    'validate-min-price-range': true,
+                    'validate-currency-dollar': true}"/><span>$</span>
+        </div>
+
+        <div class="select-field">
+            <label for="sort-order">Sort Order</label>
+            <select id="sort-order" name="sort-order">
+                <option value="ASC">Ascending</option>
+                <option value="DESC">Descending</option>
+            </select>
+        </div>
+
+        <button id="product-search" type="button" data-bind="click: submitProductSearch">Search</button>
+    </div>
+
+    <div class="search-results-container" data-bind="if: itemCount() && !emptyResult()">
+        <div class="pager-container">
+            <div class="page-count" data-bind="text: 'Products Found: ' + itemCount()"></div>
+            <div class="pagination" data-bind="foreach: new Array(numberOfPages())">
+                <div data-bind="css: {'page': true, 'active': $parent.currentPage() == $index()+1}, value: $index()+1, text: $index()+1, click: $parent.productSearch.bind($parent, $index()+1)"></div>
+            </div>
+
+            <div class="page-size">
+                <select name="page-size" id="page-size" data-bind="foreach: pageSizeOptions(), event: {change: submitProductSearch}">
+                    <option data-bind="text: value, value: value, attr:{'selected': $parent.default ? selected : null}">10</option>
+                </select>
+                <label for="page-size" data-bind="text: 'per page'"></label>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th data-bind="text: 'Thumbnail', attr: {scope: 'col'}, class: 'col thumb'"></th>
+                <th data-bind="text: 'Sku', attr: {scope: 'col'}, class: 'col sku'"></th>
+                <th data-bind="text: 'Name', attr: {scope: 'col'}, class: 'col name'"></th>
+                <th data-bind="text: 'Quantity', attr: {scope: 'col'}, class: 'col quantity'"></th>
+                <th data-bind="text: 'Price', attr: {scope: 'col'}, class: 'col price'"></th>
+                <th data-bind="text: 'Link', attr: {scope: 'col'}, class: 'col link'"></th>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach: searchResults">
+            <tr>
+                <td>
+                    <img data-bind="attr: {src: thumbnail, alt: 'Product Image'}" />
+                </td>
+                <td data-bind="text: sku"></td>
+                <td data-bind="text: name"></td>
+                <td data-bind="text: quantity"></td>
+                <td data-bind="html: price"></td>
+                <td>
+                    <a data-bind="attr: {href: link, target: '_blank', rel: 'noopener noreferrer'}, text: 'Product Link'"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div data-bind="if: emptyResult()">
+        <div class="search-results-empty message-warning message warning" data-bind="text: 'No matching products found. Please try again.'"></div>
+    </div>
+</form>

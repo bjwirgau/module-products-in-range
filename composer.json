@@ -1,0 +1,30 @@
+{
+  "name": "bjwirgau/module-products-in-range",
+  "description": "Price In Range Exercise",
+  "type": "magento2-module",
+  "authors": [{
+    "name": "Brandon Wirgau",
+    "email": "brandonjoelwirgau@gmail.com",
+    "role": "developer"
+  }],
+  "license": [
+    "MIT"
+  ],
+  "require": {
+    "php": "^8.1||^8.2||^8.3",
+    "magento/framework": "*",
+    "magento/module-catalog":  "*",
+    "magento/module-customer": "*",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "CrimsonAgility\\ProductsInRange\\": ""
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

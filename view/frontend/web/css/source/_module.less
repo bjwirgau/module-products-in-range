@@ -1,0 +1,120 @@
+& when (@media-common = true) {
+  #product-search-container {
+    .account .table-wrapper {
+      border-bottom: none;
+    }
+
+    .search-fields-container {
+      position: relative;
+      min-height: 110px;
+
+      .input-field,
+      .select-field {
+        position: relative;
+        display: inline-block;
+        width: 25%;
+        margin-right: 10px;
+        vertical-align: top;
+
+        input, label {
+          display: inline-block;
+        }
+
+        input {
+          padding-left: 20px;
+        }
+
+        span {
+          position: absolute;
+          left: 8px;
+          top: 25px;
+        }
+
+      }
+
+      #product-search {
+        display: inline-block;
+        float: right;
+        margin-top: 20px;
+      }
+    }
+
+    .search-results-container {
+      .pager-container {
+        margin: 5px 0;
+
+        > div {
+          margin: 0 5px;
+
+          select {
+            margin-bottom: 5px;
+          }
+
+          label {
+            width: 150px;
+            margin-left: 5px;
+          }
+        }
+
+        .page-size {
+          display: flex;
+          align-items: center;
+          float: right;
+        }
+
+        .pagination {
+          display: inline-block;
+          float: right;
+
+          .page {
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 0 5px;
+            cursor: pointer;
+            background: #eee;
+
+            &:hover {
+              background: #0a6aa1;
+              color: #fff;
+            }
+          }
+
+          .page.active {
+            background: #0a6c9f;
+            color: #fff;
+          }
+        }
+      }
+
+      .page-count {
+        display: inline-block;
+      }
+
+      table {
+        border: 1px solid #999;
+
+        thead {
+          background: #ddd;
+        }
+
+        tr {
+          border-bottom: 1px solid #ccc;
+          min-height: 103px;
+        }
+
+        tr:nth-child(even) {
+          background: #eee
+        }
+      }
+
+      .loader {
+        min-height: 100px;
+      }
+    }
+
+    .search-results-empty {
+      text-align: center;
+    }
+  }
+}
