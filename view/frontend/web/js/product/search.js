@@ -19,6 +19,7 @@ define([
             this.sortOrder = ko.observable('asc');
             this.currentPage = ko.observable(1);
             this.emptyResult = ko.observable(null);
+            this.searchError = ko.observable(null);
 
             this._super();
         },
@@ -68,7 +69,7 @@ define([
                     $('body').trigger('processStop');
                 },
                 error: function () {
-                    this.emptyResult(true);
+                    this.searchError(true);
                     $('body').trigger('processStop');
                 }
             })

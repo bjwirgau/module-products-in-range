@@ -80,4 +80,7 @@
     <div data-bind="if: emptyResult()">
         <div class="search-results-empty message-warning message warning" data-bind="text: 'No matching products found. Please try again.'"></div>
     </div>
+    <div data-bind="if: searchError()">
+        <div class="search-results-error message-error message error" data-bind="text: 'Error searching for products.'"></div>
+    </div>
 </form>
